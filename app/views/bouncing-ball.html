@@ -1,0 +1,61 @@
+<div class="field-container">
+  <h3>Field</h3>
+  <div class="dimensions">
+    <label for="field.width">Width:</label>
+    <input
+      ng-model="field.width"
+      ng-change="field.draw();">
+    <label for="field.height">Height:</label>
+    <input
+      ng-model="field.height"
+      ng-change="field.draw();">
+  </div>
+  <div class="field field-drawn-{{field.drawn}}">
+    <div
+      ng-repeat="b in balls"
+      id="ball-{{b.id}}"
+      class="ball
+        set-positions-{{(b.startPos.x && b.startPos.y) ? 'true' : 'false'}}
+        x-start-{{b.startPos.x}} y-start-{{b.startPos.y}}
+        field-drawn-{{field.drawn}}">
+    </div>
+  </div>
+</div>
+
+<div class="ball-controls">
+  <h3>Balls</h3>
+  <button class="add-ball" ng-click="createBall();">Add a ball</button>
+  <div class="stats">
+    <table>
+      <tr ng-repeat="b in balls">
+        <td class="id">{{b.id}}</td>
+        <td class="color">
+          <div style="width: {{b.width}}px; height: {{b.height}}px; background: {{b.color}}"></div>
+        </td>
+        <td class="start-select x">
+          <select
+            ng-model="b.startPos.x"
+            ng-change="b.placeOnField();"
+            ng-disabled="b.motion"
+            ng-options="s for s in startPositions.x">
+              <option value="">x-axis</option>
+          </select>
+        </td>
+        <td class="start-select y">
+          <select
+            ng-model="b.startPos.y"
+            ng-change="b.placeOnField();"
+            ng-disabled="b.motion"
+            ng-options="s for s in startPositions.y">
+              <option value="">y-axis</option>
+          </select>
+        </td>
+        <td class="motion">
+          <button
+            ng-click="b.pausePlay();"
+            ng-disabled="!b.placed">{{b.motion ? 'Pause' : 'Play'}}</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
