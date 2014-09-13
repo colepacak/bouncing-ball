@@ -10,3 +10,8 @@ In all seriousness, my goals here were to:
 2. Experiment with a prototypal approach to working with objects.
 
 Feedback and questions are totally welcome.
+
+### TODOS
+
+1. Add collision behavior
+2. Exclude ball colors that match field color

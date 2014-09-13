@@ -1,9 +1,5 @@
 'use strict';
 
-// TODO
-// add collision
-// exclude ball colors that match field color
-
 angular.module('bouncingBallApp')
   .directive('bouncingBall', function ($document) {
     return {
