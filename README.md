@@ -5,6 +5,7 @@ This is the component your site has been waiting for: a stand-alone AngularJS di
 Perfect for boring sites where you're trying to keep users from navigating away too quickly.
 
 In all seriousness, my goals here were to:
+
 1. Write an isolate scope directive that could operate freely from its controller (keeping DOM manipulation exclusively in the directive).
 2. Experiment with a prototypal approach to working with objects.
 
